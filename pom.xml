@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.fastdev</groupId>
-    <artifactId>springbootframework-parent</artifactId>
+    <artifactId>fastdev-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -36,6 +36,7 @@
     </properties>
 
     <modules>
+        <module>fastdev-core</module>
     </modules>
 
     <dependencies>
