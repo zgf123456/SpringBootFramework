@@ -5,16 +5,13 @@ import com.fastdev.test.mybatis.service.CityInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.util.List;
 
 /**
  * Created by zgf on 17/4/10.
  */
-@SpringBootApplication
-@ComponentScan
+//@SpringBootApplication
 public class BootStartApplication implements CommandLineRunner {
 
     @Autowired
