@@ -38,6 +38,7 @@
     <modules>
         <module>fastdev-core</module>
         <module>fastdev-test</module>
+        <module>fastdev-task</module>
     </modules>
 
     <dependencies>
