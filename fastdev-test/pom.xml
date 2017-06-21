@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>fastdev-test</artifactId>
+    <packaging>war</packaging>
 
     <dependencies>
         <!-- Compile -->
