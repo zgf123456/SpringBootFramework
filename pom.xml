@@ -69,11 +69,6 @@
 
 
         <!-- spring begin -->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-            <version>1.8.4.RELEASE</version>
-        </dependency>
         <!-- spring end -->
 
         <!-- TEST begin -->
