@@ -31,12 +31,28 @@ public class SampleRedisApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        // key value 操作
         ValueOperations<String, String> ops = this.stringRedisTemplate.opsForValue();
         String key = "spring.boot.redis.test";
         if (!this.stringRedisTemplate.hasKey(key)) {
             ops.set(key, "foo");
         }
         System.out.println("Found key " + key + ", value=" + ops.get(key));
+
+        // list 操作
+//        ListOperations<String, String> opsForList = this.stringRedisTemplate.opsForList();
+//        opsForList.leftPop(key);
+//        opsForList.leftPush(key, "value");
+
+        // hash 操作
+//        HashOperations<String, Object, Object> opsForHash = this.stringRedisTemplate.opsForHash();
+
+        // set 操作
+//        SetOperations<String, String> opsForSet = this.stringRedisTemplate.opsForSet();
+
+        // zset 操作
+//        ZSetOperations<String, String> opsForZSet = this.stringRedisTemplate.opsForZSet();
     }
 
     public static void main(String[] args) throws Exception {
