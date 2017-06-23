@@ -36,7 +36,7 @@
     </properties>
 
     <modules>
-        <module>fastdev-core</module>
+        <module>fastdev-common</module>
         <module>fastdev-test</module>
         <module>fastdev-task</module>
     </modules>

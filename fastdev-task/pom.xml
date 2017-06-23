@@ -11,5 +11,32 @@
 
     <artifactId>fastdev-task</artifactId>
 
+    <dependencies>
+        <!-- module start -->
+        <dependency>
+            <groupId>com.fastdev</groupId>
+            <artifactId>fastdev-common</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- module end -->
 
+        <!-- Test start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Test end-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 这个不能配置在父类，会找springboot启动class -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
