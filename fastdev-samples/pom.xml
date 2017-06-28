@@ -16,6 +16,7 @@
         <module>fastdev-sample-tomcat</module>
         <module>fastdev-sample-redis</module>
         <module>fastdev-sample-mybatis</module>
+        <module>fastdev-sample-shiro</module>
     </modules>
 
 </project>
