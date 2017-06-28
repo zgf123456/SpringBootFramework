@@ -1,4 +1,4 @@
-package com.fastdev.test.mybatis.model;
+package com.fastdev.sample.mybatis.model;
 
 import java.util.ArrayList;
 import java.util.Date;

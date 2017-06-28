@@ -37,7 +37,6 @@
 
     <modules>
         <module>fastdev-common</module>
-        <module>fastdev-test</module>
         <module>fastdev-task</module>
         <module>fastdev-samples</module>
     </modules>

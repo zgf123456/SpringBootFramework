@@ -1,7 +1,7 @@
-package com.fastdev.test.mybatis.mappers;
+package com.fastdev.sample.mybatis.mappers;
 
-import com.fastdev.test.mybatis.model.CityInfo;
-import com.fastdev.test.mybatis.model.CityInfoExample;
+import com.fastdev.sample.mybatis.model.CityInfo;
+import com.fastdev.sample.mybatis.model.CityInfoExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

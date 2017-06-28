@@ -1,8 +1,8 @@
-package com.fastdev.test.mybatis.service;
+package com.fastdev.sample.mybatis.service;
 
-import com.fastdev.test.mybatis.mappers.CityInfoMapper;
-import com.fastdev.test.mybatis.model.CityInfo;
-import com.fastdev.test.mybatis.model.CityInfoExample;
+import com.fastdev.sample.mybatis.mappers.CityInfoMapper;
+import com.fastdev.sample.mybatis.model.CityInfo;
+import com.fastdev.sample.mybatis.model.CityInfoExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
