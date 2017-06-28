@@ -29,7 +29,7 @@ import java.util.ArrayList;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan
-@MapperScan("com.fastdev.test.mybatis")
+@MapperScan("com.fastdev.sample.mybatis")
 public class DruidDataSourceConfig implements TransactionManagementConfigurer {
     private Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
 
