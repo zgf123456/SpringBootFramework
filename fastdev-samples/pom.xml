@@ -19,6 +19,7 @@
         <module>fastdev-sample-shiro</module>
         <module>fastdev-sample-session</module>
         <module>fastdev-sample-secure</module>
+        <module>fastdev-sample-huaiyujia</module>
     </modules>
 
 </project>
