@@ -1,8 +1,6 @@
 package com.fastdev.sample.mybatis;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.fastdev.sample.mybatis.plugin.MybatisLogInterceptor;
-import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -15,14 +13,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  * Created by zgf on 17/4/10.
@@ -31,6 +28,9 @@ import java.util.ArrayList;
 @EnableTransactionManagement
 @ComponentScan
 @MapperScan("com.fastdev.sample.mybatis")
+// 多数据源配置
+//@MapperScan(basePackages = FqlDataSourceConfigurer.PACKAGE, sqlSessionFactoryRef = "fqlSqlSessionFactory", annotationClass = FqlMybatisMapper.class)
+//@PropertySource("classpath:db.properties")
 public class DruidDataSourceConfig implements TransactionManagementConfigurer {
     private Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
 
@@ -65,29 +65,30 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
         druidDataSource.setUrl(jdbcUrl);
         druidDataSource.setUsername(jdbcUserName);
         druidDataSource.setPassword(jdbcPassword);
-        druidDataSource.setMaxActive(Integer.parseInt(jdbcMaxActive));
-        druidDataSource.setTestOnBorrow(true);
+
+        //配置初始化大小、最小、最大
         druidDataSource.setInitialSize(Integer.parseInt(jdbcInitialSize));
         druidDataSource.setMinIdle(Integer.parseInt(jdbcMinIdle));
+        druidDataSource.setMaxActive(Integer.parseInt(jdbcMaxActive));
+
+        //配置获取连接等待超时的时间
         druidDataSource.setMaxWait(Integer.parseInt(jdbcMaxWait));
+
+        //链接检测
+        //配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+        druidDataSource.setTimeBetweenEvictionRunsMillis(3000);
+        //配置一个连接在池中最小生存的时间，单位是毫秒
+        druidDataSource.setMinEvictableIdleTimeMillis(300000);
         druidDataSource.setValidationQuery(jdbcValidationQuery);
+        druidDataSource.setTestWhileIdle(true);
+        druidDataSource.setTestOnBorrow(false);
+        druidDataSource.setTestOnReturn(false);
+        druidDataSource.setRemoveAbandoned(true);
+        druidDataSource.setRemoveAbandonedTimeout(3000);
 
-        druidDataSource.setFilters("config");
-
-//        ArrayList<Filter> filters = new ArrayList<>();
-//        StatFilter statFilter = new StatFilter();
-//        statFilter.setMergeSql(true);
-//        statFilter.setSlowSqlMillis(1000);
-//        statFilter.setLogSlowSql(true);
-//        filters.add(statFilter);
-
-//        LogFilter logFilter = new Slf4jLogFilter();
-//        logFilter.setResultSetLogEnabled(false);
-//        logFilter.setConnectionLogEnabled(false);
-//        logFilter.setStatementCreateAfterLogEnabled(false);
-//        filters.add(logFilter);
-//
-//        druidDataSource.setProxyFilters(filters);
+        Properties connectProperties = new Properties();
+        connectProperties.setProperty("druid.stat.slowSqlMillis", "3000");
+        druidDataSource.setConnectProperties(connectProperties);
         return druidDataSource;
     }
 
@@ -96,16 +97,11 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
 
-        // 配置SQL耗时
-        ArrayList<Interceptor> plugins = new ArrayList<>();
-        plugins.add(new MybatisLogInterceptor());
-        bean.setPlugins(plugins.toArray(new Interceptor[]{}));
-
         //添加XML目录
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
             //每张表对应的xml文件
-            bean.setMapperLocations(resolver.getResources("classpath:mappers/**/*.xml"));
+            bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mappers/**/*.xml"));
+            bean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis-config.xml"));
             return bean.getObject();
         } catch (Exception e) {
             throw new RuntimeException(e);
