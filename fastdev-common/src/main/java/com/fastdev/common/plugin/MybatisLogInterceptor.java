@@ -1,4 +1,4 @@
-package com.fastdev.sample.mybatis.plugin;
+package com.fastdev.common.plugin;
 
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -19,15 +19,12 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
-
 @Intercepts({
         @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
         @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class,
                 RowBounds.class, ResultHandler.class})})
-public class MybatisInterceptor implements Interceptor {
-
-    private Logger logger = LoggerFactory.getLogger(MybatisInterceptor.class);
-
+public class MybatisLogInterceptor implements Interceptor {
+    private Logger logger = LoggerFactory.getLogger(MybatisLogInterceptor.class);
 
     private Properties properties;
 

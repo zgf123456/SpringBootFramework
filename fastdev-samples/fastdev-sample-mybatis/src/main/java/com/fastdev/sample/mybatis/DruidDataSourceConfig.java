@@ -1,6 +1,7 @@
 package com.fastdev.sample.mybatis;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.fastdev.sample.mybatis.plugin.MybatisLogInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -97,7 +98,7 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
 
         // 配置SQL耗时
         ArrayList<Interceptor> plugins = new ArrayList<>();
-        plugins.add(new com.fastdev.sample.mybatis.plugin.MybatisInterceptor());
+        plugins.add(new MybatisLogInterceptor());
         bean.setPlugins(plugins.toArray(new Interceptor[]{}));
 
         //添加XML目录

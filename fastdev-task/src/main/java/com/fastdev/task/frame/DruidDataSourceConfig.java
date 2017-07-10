@@ -96,7 +96,7 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
 
         // 配置SQL耗时 - 入mybatis-config.xml文件
 //        ArrayList<Interceptor> plugins = new ArrayList<>();
-//        plugins.add(new com.fastdev.common.plugin.MybatisInterceptor());
+//        plugins.add(new com.fastdev.common.plugin.MybatisLogInterceptor());
 //        bean.setPlugins(plugins.toArray(new Interceptor[]{}));
 
         //添加XML目录
