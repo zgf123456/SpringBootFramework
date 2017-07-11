@@ -39,11 +39,33 @@
     </dependencies>
 
     <build>
+        <defaultGoal>package</defaultGoal>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <excludes>
+                    <exclude>filter/*</exclude>
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
-            <!-- 这个不能配置在父类，会找springboot启动class -->
             <plugin>
+                <!-- 这个不能配置在父类，会找springboot启动class -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>

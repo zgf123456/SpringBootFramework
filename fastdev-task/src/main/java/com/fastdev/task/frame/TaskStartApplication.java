@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 public class TaskStartApplication implements CommandLineRunner {
 
     private Logger logger = LoggerFactory.getLogger(TaskStartApplication.class);
-    private boolean isRun = true;
+    private static boolean isRun = false;
     private List<QuartzJobConfig> quartzJobConfigs = null;
     private ExecutorService executorService = null;
 
@@ -33,6 +33,11 @@ public class TaskStartApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
+        if (!isRun) {
+            logger.info("task framework no run");
+            return;
+        }
+
         logger.info("task framework start");
         init();
         while (isRun) {
@@ -87,9 +92,13 @@ public class TaskStartApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
+        TaskStartApplication.setRun();
         SpringApplication.run(TaskStartApplication.class, args);
     }
 
+    public static void setRun() {
+        TaskStartApplication.isRun = true;
+    }
 
     private void init() {
         TimerTask task = new TimerTask() {

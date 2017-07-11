@@ -1,6 +1,7 @@
 package com.fastdev.task.frame;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.fastdev.common.mybatis.annotation.FastdevMybatisMapper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -10,8 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -26,8 +27,9 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan
-@MapperScan("com.fastdev.task")
+// 多数据源配置
+@MapperScan(basePackages = "com.fastdev.task.frame.mapper", sqlSessionFactoryRef = "fastdevSqlSessionFactory", annotationClass = FastdevMybatisMapper.class)
+@PropertySource("classpath:db.properties")
 public class DruidDataSourceConfig implements TransactionManagementConfigurer {
     private Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
 
@@ -89,15 +91,10 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
         return druidDataSource;
     }
 
-    @Bean(name = "sqlSessionFactory")
+    @Bean(name = "fastdevSqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-
-        // 配置SQL耗时 - 入mybatis-config.xml文件
-//        ArrayList<Interceptor> plugins = new ArrayList<>();
-//        plugins.add(new com.fastdev.common.plugin.MybatisLogInterceptor());
-//        bean.setPlugins(plugins.toArray(new Interceptor[]{}));
 
         //添加XML目录
         try {
