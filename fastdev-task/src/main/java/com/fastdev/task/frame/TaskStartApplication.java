@@ -1,8 +1,8 @@
 package com.fastdev.task.frame;
 
-import com.fastdev.task.util.SpringUtil;
 import com.fastdev.task.frame.model.QuartzJobConfig;
 import com.fastdev.task.frame.services.QuartzJobConfigService;
+import com.fastdev.task.util.SpringUtil;
 import org.quartz.CronExpression;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -30,6 +32,12 @@ public class TaskStartApplication implements CommandLineRunner {
 
     @Autowired
     private QuartzJobConfigService quartzJobConfigService;
+
+    @Bean
+    public Object testBean(PlatformTransactionManager platformTransactionManager){
+        System.out.println(">>>>>>>>>>" + platformTransactionManager.getClass().getName());
+        return new Object();
+    }
 
     @Override
     public void run(String... strings) throws Exception {

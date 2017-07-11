@@ -11,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -23,10 +25,11 @@ import java.util.Properties;
  * Created by zgf on 17/4/10.
  */
 @Configuration
+@EnableTransactionManagement
 // 多数据源配置
 @MapperScan(basePackages = "com.fastdev.task.frame.mapper", sqlSessionFactoryRef = "fastdevSqlSessionFactory", annotationClass = FastdevMybatisMapper.class)
 @PropertySource("classpath:db.properties")
-public class DruidDataSourceConfig {
+public class DruidDataSourceConfig implements TransactionManagementConfigurer {
     private Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
 
     @Value("${jdbc.driver}")
@@ -51,6 +54,9 @@ public class DruidDataSourceConfig {
 
     @Autowired
     private DataSource fastdevDataSource;
+
+    @Autowired
+    private DataSourceTransactionManager fastdevTransactionManager;
 
     @Bean(name = "fastdevDataSource")
     public DataSource fastdevDataSource() throws Exception {
@@ -104,8 +110,13 @@ public class DruidDataSourceConfig {
     }
 
     @Bean(name = "fastdevTransactionManager")
-    @Primary
     public DataSourceTransactionManager fastdevTransactionManager() {
         return new DataSourceTransactionManager(fastdevDataSource);
+    }
+
+    // 实现接口 TransactionManagementConfigurer 方法，其返回值代表在拥有多个事务管理器的情况下默认使用的事务管理器
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        return fastdevTransactionManager;
     }
 }
