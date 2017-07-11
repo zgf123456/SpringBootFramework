@@ -20,7 +20,7 @@ import java.util.concurrent.Executors;
  * Created by zgf on 17/4/10.
  */
 @SpringBootApplication
-@ComponentScan("com.fastdev.task")
+@ComponentScan("com.fastdev")
 public class TaskStartApplication implements CommandLineRunner {
 
     private Logger logger = LoggerFactory.getLogger(TaskStartApplication.class);

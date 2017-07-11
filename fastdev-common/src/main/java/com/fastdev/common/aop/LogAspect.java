@@ -38,17 +38,17 @@ public class LogAspect implements Ordered {
         String methodName = point.getSignature().getName();
         String methodParam = getMethodParam(point.getArgs(), methodName, classLogger);
         MDC.put("METHOD_PARAM", "参数值: " + methodParam);
-        classLogger.debug("方法[" + methodName + "] 执行开始 ");
+        classLogger.info("方法[" + methodName + "] 执行开始 ");
         MDC.put("METHOD_PARAM", "");
         //获取操作内容
         long startTime = System.currentTimeMillis();
         result = point.proceed();
         long endTime = System.currentTimeMillis();
-        float usedTime = (float) (endTime - startTime) / 1000;
+        long usedTime = endTime - startTime;
         String resultJson = getMethodReturn(result, methodName, classLogger);
         //后置通知
         MDC.put("METHOD_PARAM", "返回值：" + resultJson);
-        classLogger.debug("方法[" + methodName + "] 执行结束 耗时:" + usedTime + "s ");
+        classLogger.info("方法[" + methodName + "] 执行结束 耗时:" + usedTime + "ms ");
         MDC.put("METHOD_PARAM", "");
         return result;
     }
@@ -84,8 +84,7 @@ public class LogAspect implements Ordered {
                 index++;
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            classLogger.debug("获取[" + mName + "]方法参数JSON格式异常:", e);
+            classLogger.error("获取[" + mName + "]方法参数JSON格式异常:", e);
         }
         return rs.toString();
     }
@@ -98,8 +97,7 @@ public class LogAspect implements Ordered {
         try {
             JSON.toJSONString(obj);
         } catch (Exception e) {
-            e.printStackTrace();
-            classLogger.debug("获取[" + mName + "]方法返回值JSON格式异常:", e);
+            classLogger.error("获取[" + mName + "]方法返回值JSON格式异常:", e);
         }
         return rs.toString();
     }
