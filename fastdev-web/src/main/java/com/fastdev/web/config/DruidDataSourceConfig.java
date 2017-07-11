@@ -1,4 +1,4 @@
-package com.fastdev.api.config;
+package com.fastdev.web.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.fastdev.common.mybatis.annotation.FastdevMybatisMapper;

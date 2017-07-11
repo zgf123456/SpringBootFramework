@@ -27,7 +27,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 // 多数据源配置
-@MapperScan(basePackages = "com.fastdev.task.frame.mapper", sqlSessionFactoryRef = "fastdevSqlSessionFactory", annotationClass = FastdevMybatisMapper.class)
+@MapperScan(basePackages = "com.fastdev", sqlSessionFactoryRef = "fastdevSqlSessionFactory", annotationClass = FastdevMybatisMapper.class)
 @PropertySource("classpath:db.properties")
 public class DruidDataSourceConfig implements TransactionManagementConfigurer {
     private Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
