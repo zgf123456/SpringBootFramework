@@ -39,6 +39,7 @@
         <module>fastdev-common</module>
         <module>fastdev-task</module>
         <module>fastdev-samples</module>
+        <module>fastdev-web</module>
     </modules>
 
     <dependencies>
