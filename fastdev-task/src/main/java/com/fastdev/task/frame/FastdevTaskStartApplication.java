@@ -23,9 +23,9 @@ import java.util.concurrent.Executors;
  */
 @SpringBootApplication
 @ComponentScan("com.fastdev")
-public class TaskStartApplication implements CommandLineRunner {
+public class FastdevTaskStartApplication implements CommandLineRunner {
 
-    private Logger logger = LoggerFactory.getLogger(TaskStartApplication.class);
+    private Logger logger = LoggerFactory.getLogger(FastdevTaskStartApplication.class);
     private static boolean isRun = false;
     private List<QuartzJobConfig> quartzJobConfigs = null;
     private ExecutorService executorService = null;
@@ -100,12 +100,12 @@ public class TaskStartApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        TaskStartApplication.setRun();
-        SpringApplication.run(TaskStartApplication.class, args);
+        FastdevTaskStartApplication.setRun();
+        SpringApplication.run(FastdevTaskStartApplication.class, args);
     }
 
     public static void setRun() {
-        TaskStartApplication.isRun = true;
+        FastdevTaskStartApplication.isRun = true;
     }
 
     private void init() {
