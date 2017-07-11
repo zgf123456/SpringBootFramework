@@ -29,7 +29,7 @@ import java.util.Properties;
 @ComponentScan
 @MapperScan("com.fastdev.sample.mybatis")
 // 多数据源配置
-//@MapperScan(basePackages = FqlDataSourceConfigurer.PACKAGE, sqlSessionFactoryRef = "fqlSqlSessionFactory", annotationClass = FqlMybatisMapper.class)
+//@MapperScan(basePackages = "com.fastdev.sample", sqlSessionFactoryRef = "fqlSqlSessionFactory", annotationClass = FqlMybatisMapper.class)
 //@PropertySource("classpath:db.properties")
 public class DruidDataSourceConfig implements TransactionManagementConfigurer {
     private Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
