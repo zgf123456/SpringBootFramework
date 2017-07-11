@@ -3,7 +3,6 @@ package com.fastdev.sample.mybatis;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +13,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -25,13 +21,12 @@ import java.util.Properties;
  * Created by zgf on 17/4/10.
  */
 @Configuration
-@EnableTransactionManagement
 @ComponentScan
 @MapperScan("com.fastdev.sample.mybatis")
 // 多数据源配置
 //@MapperScan(basePackages = "com.fastdev.sample", sqlSessionFactoryRef = "fqlSqlSessionFactory", annotationClass = FqlMybatisMapper.class)
 //@PropertySource("classpath:db.properties")
-public class DruidDataSourceConfig implements TransactionManagementConfigurer {
+public class DruidDataSourceConfig {
     private Logger logger = LoggerFactory.getLogger(DruidDataSourceConfig.class);
 
     @Value("${jdbc.driver}")
@@ -55,10 +50,10 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
     private String jdbcValidationQuery;
 
     @Autowired
-    private DataSource dataSource;
+    private DataSource fastdevDataSource;
 
-    @Bean
-    public DataSource dataSource() throws Exception {
+    @Bean(name = "fastdevDataSource")
+    public DataSource fastdevDataSource() throws Exception {
         logger.info("-------------------- datasource init ---------------------");
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName(jdbcDriver);
@@ -95,7 +90,7 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource);
+        bean.setDataSource(fastdevDataSource);
 
         //添加XML目录
         try {
@@ -108,14 +103,8 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
         }
     }
 
-    @Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-        return new SqlSessionTemplate(sqlSessionFactory);
-    }
-
-
-    @Override
-    public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return new DataSourceTransactionManager(dataSource);
+    @Bean(name = "fastdevTransactionManager")
+    public DataSourceTransactionManager fastdevTransactionManager() {
+        return new DataSourceTransactionManager(fastdevDataSource);
     }
 }
