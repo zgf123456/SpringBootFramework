@@ -102,7 +102,7 @@ public class DruidDataSourceConfig implements TransactionManagementConfigurer {
         //添加XML目录
         try {
             //每张表对应的xml文件
-            bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mappers/**/*.xml"));
+            bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*.xml"));
             bean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis-config.xml"));
             return bean.getObject();
         } catch (Exception e) {
