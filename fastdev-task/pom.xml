@@ -21,12 +21,10 @@
         </dependency>
         <!-- module end -->
 
-
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.2.1</version>
         </dependency>
 
         <!-- Test start-->

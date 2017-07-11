@@ -16,18 +16,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <guava.version>20.0</guava.version>
-        <commons-lang3.version>3.5</commons-lang3.version>
-        <slf4j.version>1.7.22</slf4j.version>
-        <orika.version>1.5.0</orika.version>
-        <jackson.version>2.8.6</jackson.version>
-        <cglib.version>3.2.4</cglib.version>
-        <commons-collections.version>4.1</commons-collections.version>
-        <logback.version>1.1.8</logback.version>
-        <junit.version>4.12</junit.version>
-        <assertj.version>2.6.0</assertj.version>
-        <mockito.version>1.10.19</mockito.version>
-
         <!-- Plugin的属性 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.7</java.version>
@@ -40,48 +28,90 @@
         <module>fastdev-task</module>
         <module>fastdev-samples</module>
         <module>fastdev-web</module>
+        <module>fastdev-api</module>
     </modules>
 
-    <dependencies>
-        <!-- UTILS begin -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons-lang3.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.31</version>
-        </dependency>
-        <!-- UTILS end -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- UTILS begin -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>20.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.31</version>
+            </dependency>
+            <!-- UTILS end -->
 
-        <!-- log begin -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <!-- log end -->
+            <!-- log begin -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.2.3</version>
+            </dependency>
+            <!-- log end -->
 
+            <!-- shiro begin -->
+            <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-all</artifactId>
+                <version>1.2.3</version>
+            </dependency>
+            <!-- shiro end -->
 
-        <!-- spring begin -->
-        <!-- spring end -->
+            <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>2.2.1</version>
+            </dependency>
 
-        <!-- TEST begin -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- TEST end -->
-    </dependencies>
+            <!-- spring begin -->
+            <!-- spring end -->
+
+            <!-- spring boot starter begin -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+            <!-- spring boot starter end -->
+
+            <!-- db begin -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.42</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.0.31</version>
+            </dependency>
+            <!-- db end -->
+
+            <!-- web begin -->
+            <!-- javax.servlet:servlet-api -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+            </dependency>
+            <!-- web end -->
+
+            <!-- TEST begin -->
+            <!-- TEST end -->
+        </dependencies>
+    </dependencyManagement>
 
     <!-- Package as an executable jar -->
     <build>

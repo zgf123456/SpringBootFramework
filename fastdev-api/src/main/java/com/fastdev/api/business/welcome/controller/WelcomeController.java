@@ -1,4 +1,4 @@
-package com.fastdev.api.controller;/*
+package com.fastdev.api.business.welcome.controller;/*
  * Copyright 2012-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

@@ -19,7 +19,6 @@
         <module>fastdev-sample-session</module>
         <module>fastdev-sample-secure</module>
         <module>fastdev-sample-huaiyujia</module>
-        <module>../fastdev-api</module>
     </modules>
 
 </project>

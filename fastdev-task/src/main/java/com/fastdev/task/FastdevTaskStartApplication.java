@@ -1,8 +1,8 @@
-package com.fastdev.task.frame;
+package com.fastdev.task;
 
+import com.fastdev.common.util.SpringUtil;
 import com.fastdev.task.frame.model.QuartzJobConfig;
 import com.fastdev.task.frame.services.QuartzJobConfigService;
-import com.fastdev.task.util.SpringUtil;
 import org.quartz.CronExpression;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

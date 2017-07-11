@@ -1,4 +1,4 @@
-package com.fastdev.task.util;
+package com.fastdev.common.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

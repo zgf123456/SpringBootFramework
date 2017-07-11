@@ -1,4 +1,4 @@
-package com.fastdev.task.frame;
+package com.fastdev.task.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.fastdev.common.mybatis.annotation.FastdevMybatisMapper;
