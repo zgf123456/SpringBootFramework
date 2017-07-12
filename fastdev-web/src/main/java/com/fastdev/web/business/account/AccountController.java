@@ -3,7 +3,6 @@ package com.fastdev.web.business.account;
 import com.fastdev.web.common.dto.ResponseVo;
 import com.fastdev.web.config.shiro.UserAuthorizingInfo;
 import com.fastdev.web.config.shiro.UserAuthorizingUtils;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -39,16 +38,18 @@ public class AccountController {
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
         ResponseVo responseVo = new ResponseVo();
+        MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(responseVo);
+        mappingJacksonValue.setJsonpFunction(callback);
 
         if (StringUtils.isBlank(account)) {
             responseVo.setReturnCode(ResponseVo.FAIL);
             responseVo.setReturnMsg("请输入登录账号");
-            return new JSONPObject(callback, responseVo);
+            return mappingJacksonValue;
         }
         if (StringUtils.isBlank(password)) {
             responseVo.setReturnCode(ResponseVo.FAIL);
             responseVo.setReturnMsg("请输入登录密码");
-            return new JSONPObject(callback, responseVo);
+            return mappingJacksonValue;
         }
 
         boolean rememberMeFlg = true;
@@ -64,8 +65,6 @@ public class AccountController {
             logger.error("用户登录系统异常 account:" + account + " password:" + password + " 原因：" + e);
         }
 
-        MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(responseVo);
-        mappingJacksonValue.setJsonpFunction(callback);
         return mappingJacksonValue;
     }
 
