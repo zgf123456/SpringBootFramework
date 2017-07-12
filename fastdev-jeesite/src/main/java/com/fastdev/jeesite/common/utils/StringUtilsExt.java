@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 /**
  * 字符串扩展工具类
  */
-public class StringUtilsExt {
+public class StringUtilsExt extends StringUtils {
 
     private static final char SEPARATOR = '_';
     private static final String CHARSET_NAME = "UTF-8";

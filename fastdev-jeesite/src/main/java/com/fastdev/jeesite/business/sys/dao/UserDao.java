@@ -1,15 +1,15 @@
 package com.fastdev.jeesite.business.sys.dao;
 
+import com.fastdev.common.mybatis.annotation.FastdevMybatisMapper;
 import com.fastdev.jeesite.business.sys.entity.User;
 import com.fastdev.jeesite.common.persistence.CrudDao;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 /**
  * 用户DAO接口
  */
-@Mapper
+@FastdevMybatisMapper
 public interface UserDao extends CrudDao<User> {
 
     /**

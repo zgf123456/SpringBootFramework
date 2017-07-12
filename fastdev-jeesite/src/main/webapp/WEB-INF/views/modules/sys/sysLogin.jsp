@@ -162,8 +162,6 @@
     </div>
 </form>
 <div class="footer">
-    Copyright &copy; 2012-2030 <a href="${pageContext.request.contextPath}">${fns:getConfig('productName')}</a> -
-    Powered By <a href="http://jeesite.com" target="_blank">JeeSite</a> ${fns:getConfig('version')}
 </div>
 <script src="${ctxStatic}/flash/zoom.min.js" type="text/javascript"></script>
 </body>

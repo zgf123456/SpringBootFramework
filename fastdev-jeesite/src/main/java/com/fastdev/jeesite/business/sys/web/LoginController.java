@@ -1,19 +1,16 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.web;
 
+import com.fastdev.jeesite.business.sys.security.FormAuthenticationFilter;
+import com.fastdev.jeesite.business.sys.security.SystemAuthorizingRealm;
+import com.fastdev.jeesite.business.sys.utils.UserUtils;
+import com.fastdev.jeesite.common.security.shiro.session.SessionDAO;
+import com.fastdev.jeesite.common.servlet.ValidateCodeServlet;
+import com.fastdev.jeesite.common.utils.CacheUtils;
+import com.fastdev.jeesite.common.utils.CookieUtils;
+import com.fastdev.jeesite.common.utils.IdGen;
+import com.fastdev.jeesite.common.web.BaseController;
 import com.google.common.collect.Maps;
-import com.wolfking.jeesite.common.security.shiro.session.SessionDAO;
-import com.wolfking.jeesite.common.servlet.ValidateCodeServlet;
-import com.wolfking.jeesite.common.utils.CacheUtils;
-import com.wolfking.jeesite.common.utils.CookieUtils;
-import com.wolfking.jeesite.common.utils.IdGen;
-import com.wolfking.jeesite.common.utils.StringUtils;
-import com.wolfking.jeesite.common.web.BaseController;
-import com.wolfking.jeesite.modules.sys.security.FormAuthenticationFilter;
-import com.wolfking.jeesite.modules.sys.security.SystemAuthorizingRealm.Principal;
-import com.wolfking.jeesite.modules.sys.utils.UserUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.web.util.WebUtils;
@@ -30,9 +27,6 @@ import java.util.Map;
 
 /**
  * 登录Controller
- *
- * @author ThinkGem
- * @version 2013-5-31
  */
 @Controller
 public class LoginController extends BaseController {
@@ -45,7 +39,7 @@ public class LoginController extends BaseController {
      */
     @RequestMapping(value = "${adminPath}/login", method = RequestMethod.GET)
     public String login(HttpServletRequest request, HttpServletResponse response, Model model) {
-        Principal principal = UserUtils.getPrincipal();
+        SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
 
         // 默认页签模式
         String tabmode = CookieUtils.getCookie(request, "tabmode");
@@ -66,7 +60,7 @@ public class LoginController extends BaseController {
      */
     @RequestMapping(value = "${adminPath}/login", method = RequestMethod.POST)
     public String loginFail(HttpServletRequest request, HttpServletResponse response, Model model) {
-        Principal principal = UserUtils.getPrincipal();
+        SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
 
         // 如果已经登录，则跳转到管理首页
         if (principal != null) {
@@ -116,7 +110,7 @@ public class LoginController extends BaseController {
     @RequiresPermissions("user")
     @RequestMapping(value = "${adminPath}")
     public String index(HttpServletRequest request, HttpServletResponse response) {
-        Principal principal = UserUtils.getPrincipal();
+        SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
 
         // 登录成功后，验证码计算器清零
         isValidateCodeLogin(principal.getLoginName(), false, true);

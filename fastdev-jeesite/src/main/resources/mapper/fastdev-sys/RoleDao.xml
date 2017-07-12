@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wolfking.jeesite.modules.sys.dao.RoleDao">
+<mapper namespace="com.fastdev.jeesite.business.sys.dao.RoleDao">
     
-    <resultMap id="roleResult" type="com.wolfking.jeesite.modules.sys.entity.Role">
+    <resultMap id="roleResult" type="com.fastdev.jeesite.business.sys.entity.Role">
 		<id property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="enname" column="enname" />
@@ -11,10 +11,10 @@
 		<result property="remarks" column="remarks" />
 		<result property="useable" column="useable" />
 		<result property="sysData" column="sysData" />
-		<collection property="menuList" ofType="com.wolfking.jeesite.modules.sys.entity.Menu">
+		<collection property="menuList" ofType="com.fastdev.jeesite.business.sys.entity.Menu">
 			<id property="id" column="menuList.id" />
 		</collection>
-		<collection property="officeList" ofType="com.wolfking.jeesite.modules.sys.entity.Office">
+		<collection property="officeList" ofType="com.fastdev.jeesite.business.sys.entity.Office">
 			<id property="id" column="officeList.id" />
 		</collection>
 	</resultMap>
@@ -62,7 +62,7 @@
 		WHERE a.id = #{id}
 	</select>
 	
-	<select id="getByName" resultType="com.wolfking.jeesite.modules.sys.entity.Role">
+	<select id="getByName" resultType="com.fastdev.jeesite.business.sys.entity.Role">
 		SELECT
 			<include refid="roleColumns"/>
 		FROM sys_role a
@@ -70,7 +70,7 @@
 		WHERE a.name = #{name} AND a.del_flag = #{DEL_FLAG_NORMAL}
 	</select>
 	
-	<select id="getByEnname" resultType="com.wolfking.jeesite.modules.sys.entity.Role">
+	<select id="getByEnname" resultType="com.fastdev.jeesite.business.sys.entity.Role">
 		SELECT
 			<include refid="roleColumns"/>
 		FROM sys_role a
@@ -99,7 +99,7 @@
 		ORDER BY o.code, a.name
 	</select>
 	
-	<select id="findAllList" resultType="com.wolfking.jeesite.modules.sys.entity.Role">
+	<select id="findAllList" resultType="com.fastdev.jeesite.business.sys.entity.Role">
 		SELECT
 			<include refid="roleColumns"/>
 		FROM sys_role a

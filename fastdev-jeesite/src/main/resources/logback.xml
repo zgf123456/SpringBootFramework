@@ -4,7 +4,7 @@
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <Pattern>%d{HH:mm:ss.SSS} [%t] [%-32X{REQ_UID}] %-5level %logger.%M[%C{0}:%L] - %msg%X{METHOD_PARAM}%n</Pattern>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-32X{REQ_UID}] %-5level %logger.%M[%C{0}:%L] - %msg%X{METHOD_PARAM}%n</Pattern>
         </encoder>
     </appender>
 

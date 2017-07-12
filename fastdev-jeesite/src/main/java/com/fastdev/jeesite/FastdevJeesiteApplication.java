@@ -1,6 +1,6 @@
 package com.fastdev.jeesite;
 
-import com.wolfking.jeesite.modules.sys.service.SystemService;
+import com.fastdev.jeesite.business.sys.service.SystemService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;

@@ -1,10 +1,7 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.persistence.interceptor;
 
-import com.wolfking.jeesite.common.persistence.Page;
-import com.wolfking.jeesite.common.utils.Reflections;
+import com.fastdev.jeesite.common.persistence.Page;
+import com.fastdev.jeesite.common.utils.Reflections;
 import org.apache.ibatis.executor.statement.BaseStatementHandler;
 import org.apache.ibatis.executor.statement.RoutingStatementHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
@@ -20,8 +17,6 @@ import java.util.Properties;
 
 /**
  * Mybatis数据库分页插件，拦截StatementHandler的prepare方法
- * @author poplar.yfyang / thinkgem
- * @version 2013-8-28
  */
 @Intercepts({
 	@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class})
@@ -48,19 +43,19 @@ public class PreparePaginationInterceptor extends BaseInterceptor {
                 //分页SQL<select>中parameterType属性对应的实体参数，即Mapper接口中执行分页方法的参数,该参数不得为空
                 Object parameterObject = boundSql.getParameterObject();
                 if (parameterObject == null) {
-                    log.error("参数未实例化");
+                    logger.error("参数未实例化");
                     throw new NullPointerException("parameterObject尚未实例化！");
                 } else {
                     final Connection connection = (Connection) ivk.getArgs()[0];
                     final String sql = boundSql.getSql();
                     //记录统计
-                    final int count = SQLHelper.getCount(sql, connection, mappedStatement, parameterObject, boundSql, log);
+                    final int count = SQLHelper.getCount(sql, connection, mappedStatement, parameterObject, boundSql, logger);
                     Page<Object> page = null;
                     page = convertParameter(parameterObject, page);
                     page.setCount(count);
                     String pagingSql = SQLHelper.generatePageSql(sql, page, DIALECT);
-                    if (log.isDebugEnabled()) {
-                        log.debug("PAGE SQL:" + pagingSql);
+                    if (logger.isDebugEnabled()) {
+                        logger.debug("PAGE SQL:" + pagingSql);
                     }
                     //将分页sql语句反射回BoundSql.
                     Reflections.setFieldValue(boundSql, "sql", pagingSql);

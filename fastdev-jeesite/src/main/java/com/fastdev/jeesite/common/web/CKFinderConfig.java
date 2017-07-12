@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.web;
 
 import com.ckfinder.connector.configuration.Configuration;
@@ -8,10 +5,10 @@ import com.ckfinder.connector.configuration.Events;
 import com.ckfinder.connector.data.AccessControlLevel;
 import com.ckfinder.connector.utils.AccessControlUtil;
 import com.ckfinder.connector.utils.PathUtils;
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.utils.FileUtils;
-import com.wolfking.jeesite.modules.sys.security.SystemAuthorizingRealm;
-import com.wolfking.jeesite.modules.sys.utils.UserUtils;
+import com.fastdev.jeesite.business.sys.security.SystemAuthorizingRealm;
+import com.fastdev.jeesite.business.sys.utils.UserUtils;
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.utils.FileUtils;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.w3c.dom.Document;
@@ -29,8 +26,6 @@ import java.util.Scanner;
 /**
  * CKFinder配置
  *
- * @author ThinkGem
- * @version 2014-06-25
  */
 public class CKFinderConfig extends Configuration {
 

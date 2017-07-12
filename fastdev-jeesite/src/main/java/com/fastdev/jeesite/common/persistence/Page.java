@@ -1,11 +1,8 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.persistence;
 
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.utils.CookieUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.utils.CookieUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +13,6 @@ import java.util.regex.Pattern;
 
 /**
  * 分页类
- * @author ThinkGem
- * @version 2013-7-2
  * @param <T>
  */
 public class Page<T> {

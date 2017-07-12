@@ -29,6 +29,7 @@
         <module>fastdev-samples</module>
         <module>fastdev-web</module>
         <module>fastdev-api</module>
+        <module>fastdev-jeesite</module>
     </modules>
 
     <dependencyManagement>
@@ -43,6 +44,16 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>3.5</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.5</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>1.3.3</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>

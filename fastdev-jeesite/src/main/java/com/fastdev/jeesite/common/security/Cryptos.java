@@ -1,10 +1,8 @@
-/**
- * Copyright (c) 2005-2012 springside.org.cn
- */
 package com.fastdev.jeesite.common.security;
 
-import com.wolfking.jeesite.common.utils.Encodes;
-import com.wolfking.jeesite.common.utils.Exceptions;
+
+import com.fastdev.jeesite.common.utils.Encodes;
+import com.fastdev.jeesite.common.utils.Exceptions;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -17,12 +15,12 @@ import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 
+
 /**
  * 支持HMAC-SHA1消息签名 及 DES/AES对称加密的工具类.
  * 
  * 支持Hex与Base64两种编码方式.
  * 
- * @author calvin
  */
 public class Cryptos {
 

@@ -1,9 +1,6 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.web;
 
-import com.wolfking.jeesite.common.web.BaseController;
+import com.fastdev.jeesite.common.web.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 标签Controller
- * @author ThinkGem
- * @version 2013-3-23
  */
 @Controller
 @RequestMapping(value = "${adminPath}/tag")

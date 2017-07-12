@@ -1,14 +1,11 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.security.shiro.session;
 
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.utils.DateUtils;
+import com.fastdev.jeesite.common.utils.IdGen;
+import com.fastdev.jeesite.common.web.Servlets;
 import com.google.common.collect.Sets;
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.utils.DateUtils;
-import com.wolfking.jeesite.common.utils.IdGen;
-import com.wolfking.jeesite.common.utils.StringUtils;
-import com.wolfking.jeesite.common.web.Servlets;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
@@ -28,8 +25,6 @@ import java.util.Set;
 
 /**
  * 系统安全认证实现类
- * @author ThinkGem
- * @version 2014-7-24
  */
 @Component("sessionDAO")
 public class CacheSessionDAO extends EnterpriseCacheSessionDAO implements SessionDAO,InitializingBean {

@@ -1,11 +1,8 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.web;
 
-import com.wolfking.jeesite.common.mapper.JsonMapper;
-import com.wolfking.jeesite.common.utils.DateUtils;
-import com.wolfking.jeesite.common.validator.BeanValidators;
+import com.fastdev.jeesite.common.mapper.JsonMapper;
+import com.fastdev.jeesite.common.utils.DateUtils;
+import com.fastdev.jeesite.common.validator.BeanValidators;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.slf4j.Logger;
@@ -30,9 +27,6 @@ import java.util.List;
 
 /**
  * 控制器支持类
- *
- * @author ThinkGem
- * @version 2013-3-23
  */
 public abstract class BaseController {
     /**

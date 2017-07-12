@@ -1,16 +1,12 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.persistence.interceptor;
 
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.persistence.Page;
-import com.wolfking.jeesite.common.persistence.dialect.Dialect;
-import com.wolfking.jeesite.common.utils.Reflections;
-import com.wolfking.jeesite.common.utils.StringUtils;
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.persistence.Page;
+import com.fastdev.jeesite.common.persistence.dialect.Dialect;
+import com.fastdev.jeesite.common.utils.Reflections;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.executor.ErrorContext;
 import org.apache.ibatis.executor.ExecutorException;
-import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.ParameterMapping;
@@ -21,6 +17,7 @@ import org.apache.ibatis.scripting.xmltags.ForEachSqlNode;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
+import org.slf4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,8 +30,6 @@ import java.util.regex.Pattern;
 /**
  * SQL工具类
  *
- * @author poplar.yfyang / thinkgem
- * @version 2013-8-28
  */
 public class SQLHelper {
 
@@ -101,7 +96,7 @@ public class SQLHelper {
      */
     public static int getCount(final String sql, final Connection connection,
                                final MappedStatement mappedStatement, final Object parameterObject,
-                               final BoundSql boundSql, Log log) throws SQLException {
+                               final BoundSql boundSql, Logger log) throws SQLException {
         String dbName = Global.getJdbcType();
         final String countSql;
         if ("oracle".equals(dbName)) {

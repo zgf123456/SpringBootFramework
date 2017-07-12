@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.utils;
 
 import javax.servlet.http.Cookie;
@@ -12,8 +9,6 @@ import java.net.URLEncoder;
 
 /**
  * Cookie工具类
- * @author ThinkGem
- * @version 2013-01-15
  */
 public class CookieUtils {
 
@@ -30,8 +25,7 @@ public class CookieUtils {
 	 * 设置 Cookie
 	 * @param name 名称
 	 * @param value 值
-	 * @param maxAge 生存时间（单位秒）
-	 * @param uri 路径
+	 * @param path 路径
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, String path) {
 		setCookie(response, name, value, path, 60*60*24);
@@ -42,7 +36,6 @@ public class CookieUtils {
 	 * @param name 名称
 	 * @param value 值
 	 * @param maxAge 生存时间（单位秒）
-	 * @param uri 路径
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, int maxAge) {
 		setCookie(response, name, value, "/", maxAge);
@@ -53,7 +46,7 @@ public class CookieUtils {
 	 * @param name 名称
 	 * @param value 值
 	 * @param maxAge 生存时间（单位秒）
-	 * @param uri 路径
+	 * @param path 路径
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, String path, int maxAge) {
 		Cookie cookie = new Cookie(name, null);

@@ -1,11 +1,8 @@
-/**
- * Copyright (c) 2005-2012 springside.org.cn
- */
 package com.fastdev.jeesite.common.mapper;
 
-import com.wolfking.jeesite.common.utils.Exceptions;
-import com.wolfking.jeesite.common.utils.Reflections;
-import com.wolfking.jeesite.common.utils.StringUtils;
+import com.fastdev.jeesite.common.utils.Exceptions;
+import com.fastdev.jeesite.common.utils.Reflections;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.util.Assert;
 
@@ -17,6 +14,7 @@ import java.io.StringWriter;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+
 
 /**
  * 使用Jaxb2.0实现XML<->Java Object的Mapper.

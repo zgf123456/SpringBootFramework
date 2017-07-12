@@ -1,9 +1,6 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.persistence.proxy;
 
-import com.wolfking.jeesite.common.persistence.Page;
+import com.fastdev.jeesite.common.persistence.Page;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -22,10 +19,6 @@ import java.util.Map;
  * <p>
  * 执行代理类，扩展Mybatis的方式来让其Mapper接口来支持.
  * </p>
- *
- * @author poplar.yfyang
- * @version 1.0 2012-05-13 上午10:09
- * @since JDK 1.5
  */
 public class PaginationMapperMethod {
 

@@ -1,16 +1,13 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.web;
 
+import com.fastdev.jeesite.business.sys.entity.Dict;
+import com.fastdev.jeesite.business.sys.service.DictService;
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.persistence.Page;
+import com.fastdev.jeesite.common.web.BaseController;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.persistence.Page;
-import com.wolfking.jeesite.common.utils.StringUtils;
-import com.wolfking.jeesite.common.web.BaseController;
-import com.wolfking.jeesite.modules.sys.entity.Dict;
-import com.wolfking.jeesite.modules.sys.service.DictService;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,8 +25,6 @@ import java.util.Map;
 
 /**
  * 字典Controller
- * @author ThinkGem
- * @version 2014-05-16
  */
 @Controller
 @RequestMapping(value = "${adminPath}/sys/dict")
@@ -52,7 +47,7 @@ public class DictController extends BaseController {
 	public String list(Dict dict, HttpServletRequest request, HttpServletResponse response, Model model) {
 		List<String> typeList = dictService.findTypeList();
 		model.addAttribute("typeList", typeList);
-        Page<Dict> page = dictService.findPage(new Page<Dict>(request, response), dict); 
+        Page<Dict> page = dictService.findPage(new Page<Dict>(request, response), dict);
         model.addAttribute("page", page);
 		return "modules/sys/dictList";
 	}

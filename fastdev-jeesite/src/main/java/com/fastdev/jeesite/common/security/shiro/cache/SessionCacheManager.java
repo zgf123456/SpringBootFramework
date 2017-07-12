@@ -1,10 +1,7 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.security.shiro.cache;
 
+import com.fastdev.jeesite.common.web.Servlets;
 import com.google.common.collect.Sets;
-import com.wolfking.jeesite.common.web.Servlets;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.cache.Cache;
@@ -23,8 +20,6 @@ import java.util.Set;
 
 /**
  * 自定义授权缓存管理类
- * @author ThinkGem
- * @version 2014-7-21
  */
 public class SessionCacheManager implements CacheManager {
 

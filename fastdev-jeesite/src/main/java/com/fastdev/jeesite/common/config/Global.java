@@ -1,12 +1,9 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.config;
 
 import com.ckfinder.connector.ServletContextFactory;
+import com.fastdev.jeesite.common.utils.PropertiesLoader;
 import com.google.common.collect.Maps;
-import com.wolfking.jeesite.common.utils.PropertiesLoader;
-import com.wolfking.jeesite.common.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
@@ -15,9 +12,6 @@ import java.util.Map;
 
 /**
  * 全局配置类
- *
- * @author ThinkGem
- * @version 2014-06-25
  */
 public class Global {
 
@@ -37,7 +31,7 @@ public class Global {
     /**
      * 属性文件加载对象
      */
-    private static PropertiesLoader loader = new PropertiesLoader("bootstrap.yml");
+    private static PropertiesLoader loader = new PropertiesLoader("application.properties");
 
     /**
      * 是/否

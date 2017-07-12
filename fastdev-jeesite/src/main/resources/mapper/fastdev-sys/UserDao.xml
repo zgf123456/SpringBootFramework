@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wolfking.jeesite.modules.sys.dao.UserDao">
+<mapper namespace="com.fastdev.jeesite.business.sys.dao.UserDao">
 	
     <sql id="userColumns">
     	a.id,
@@ -62,7 +62,7 @@
     </sql>
 	
 	<!-- 根据编号获得用户 -->
-	<select id="get" resultType="com.wolfking.jeesite.modules.sys.entity.User">
+	<select id="get" resultType="com.fastdev.jeesite.business.sys.entity.User">
 		SELECT
 			<include refid="userColumns"/>
 		FROM sys_user a
@@ -71,7 +71,7 @@
 	</select>
 	
 	<!-- 根据登录名查询用户 -->
-	<select id="getByLoginName" resultType="com.wolfking.jeesite.modules.sys.entity.User" parameterType="com.wolfking.jeesite.modules.sys.entity.User">
+	<select id="getByLoginName" resultType="com.fastdev.jeesite.business.sys.entity.User" parameterType="com.fastdev.jeesite.business.sys.entity.User">
 		SELECT
 			<include refid="userColumns"/>
 		FROM sys_user a
@@ -80,7 +80,7 @@
 	</select>
 	
 	<!-- 分页查询用户信息 -->
-	<select id="findList" resultType="com.wolfking.jeesite.modules.sys.entity.User">
+	<select id="findList" resultType="com.fastdev.jeesite.business.sys.entity.User">
 		SELECT
 			<include refid="userColumns"/>
 		FROM sys_user a
@@ -130,7 +130,7 @@
 	</select>
 	
 	<!-- 根据OfficeId获取用户（树查询用户时用） -->
-	<select id="findUserByOfficeId" resultType="com.wolfking.jeesite.modules.sys.entity.User" useCache="true">
+	<select id="findUserByOfficeId" resultType="com.fastdev.jeesite.business.sys.entity.User" useCache="true">
 		SELECT
 			a.id, a.name, a.login_name
 		FROM sys_user a
@@ -140,7 +140,7 @@
 	</select>
 	
 	<!-- 查询全部用户 -->
-	<select id="findAllList" resultType="com.wolfking.jeesite.modules.sys.entity.User">
+	<select id="findAllList" resultType="com.fastdev.jeesite.business.sys.entity.User">
 		SELECT
 			<include refid="userColumns"/>
 		FROM sys_user a

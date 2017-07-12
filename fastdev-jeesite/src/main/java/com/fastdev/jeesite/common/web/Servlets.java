@@ -5,12 +5,12 @@
  */
 package com.fastdev.jeesite.common.web;
 
+import com.fastdev.jeesite.business.sys.security.SystemAuthorizingRealm;
+import com.fastdev.jeesite.business.sys.utils.UserUtils;
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.utils.Encodes;
 import com.google.common.net.HttpHeaders;
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.utils.Encodes;
-import com.wolfking.jeesite.common.utils.StringUtils;
-import com.wolfking.jeesite.modules.sys.security.SystemAuthorizingRealm.Principal;
-import com.wolfking.jeesite.modules.sys.utils.UserUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -24,9 +24,6 @@ import java.util.Map.Entry;
 
 /**
  * Http与Servlet工具类.
- *
- * @author calvin/thinkgem
- * @version 2014-8-19
  */
 public class Servlets {
 
@@ -206,7 +203,7 @@ public class Servlets {
 
         String accept = request.getHeader("accept");
         String xRequestedWith = request.getHeader("X-Requested-With");
-        Principal principal = UserUtils.getPrincipal();
+        SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
 
         // 如果是异步请求或是手机端，则直接返回信息
         return ((accept != null && accept.indexOf("application/json") != -1

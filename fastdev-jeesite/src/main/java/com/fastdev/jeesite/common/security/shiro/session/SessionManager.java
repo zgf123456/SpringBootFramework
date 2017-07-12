@@ -1,9 +1,6 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.security.shiro.session;
 
-import com.wolfking.jeesite.common.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
@@ -27,8 +24,6 @@ import java.util.Date;
 
 /**
  * 自定义WEB会话管理类
- * @author ThinkGem
- * @version 2014-7-20
  */
 @Component
 public class SessionManager extends DefaultWebSessionManager {

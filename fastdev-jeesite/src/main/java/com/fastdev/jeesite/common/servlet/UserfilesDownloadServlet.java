@@ -1,6 +1,6 @@
 package com.fastdev.jeesite.common.servlet;
 
-import com.wolfking.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.config.Global;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
@@ -15,9 +15,6 @@ import java.io.*;
 
 /**
  * 查看CK上传的图片
- *
- * @author ThinkGem
- * @version 2014-06-25
  */
 @WebServlet(urlPatterns = "/userfiles/*")
 public class UserfilesDownloadServlet extends HttpServlet {

@@ -1,20 +1,15 @@
-/**
- * Copyright &copy; 2012-2013 <a href="httparamMap://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.service;
 
-import com.wolfking.jeesite.common.persistence.Page;
-import com.wolfking.jeesite.common.service.CrudService;
-import com.wolfking.jeesite.common.utils.DateUtils;
-import com.wolfking.jeesite.modules.sys.dao.LogDao;
-import com.wolfking.jeesite.modules.sys.entity.Log;
+import com.fastdev.jeesite.business.sys.dao.LogDao;
+import com.fastdev.jeesite.business.sys.entity.Log;
+import com.fastdev.jeesite.common.persistence.Page;
+import com.fastdev.jeesite.common.service.CrudService;
+import com.fastdev.jeesite.common.utils.DateUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 日志Service
- * @author ThinkGem
- * @version 2014-05-16
  */
 @Service
 @Transactional(readOnly = true)

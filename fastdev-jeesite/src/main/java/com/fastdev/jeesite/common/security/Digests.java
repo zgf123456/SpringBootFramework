@@ -1,9 +1,6 @@
-/**
- * Copyright (c) 2005-2012 springside.org.cn
- */
 package com.fastdev.jeesite.common.security;
 
-import com.wolfking.jeesite.common.utils.Exceptions;
+import com.fastdev.jeesite.common.utils.Exceptions;
 import org.apache.commons.lang3.Validate;
 
 import java.io.IOException;
@@ -16,8 +13,6 @@ import java.security.SecureRandom;
  * 支持SHA-1/MD5消息摘要的工具类.
  * 
  * 返回ByteSource，可进一步被编码为Hex, Base64或UrlSafeBase64
- * 
- * @author calvin
  */
 public class Digests {
 

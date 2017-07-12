@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.utils;
 
 import org.apache.shiro.cache.Cache;
@@ -8,9 +5,6 @@ import org.apache.shiro.cache.CacheManager;
 
 /**
  * Cache工具类
- *
- * @author ThinkGem
- * @version 2013-5-29
  */
 public class CacheUtils {
 

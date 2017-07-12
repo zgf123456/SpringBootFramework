@@ -6,7 +6,6 @@ import com.fastdev.jeesite.common.utils.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.NamedThreadLocal;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 日志拦截器
  */
-@Component("controllerLogInterceptor")
 public class LogInterceptor extends BaseService implements HandlerInterceptor {
 
     private Logger logger = LoggerFactory.getLogger("controller-log");

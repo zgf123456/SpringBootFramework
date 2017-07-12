@@ -1,13 +1,10 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.persistence;
 
+import com.fastdev.jeesite.business.sys.entity.User;
+import com.fastdev.jeesite.business.sys.utils.UserUtils;
+import com.fastdev.jeesite.common.utils.IdGen;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.wolfking.jeesite.common.utils.IdGen;
-import com.wolfking.jeesite.modules.sys.entity.User;
-import com.wolfking.jeesite.modules.sys.utils.UserUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
@@ -15,8 +12,6 @@ import java.util.Date;
 
 /**
  * 数据Entity类
- * @author ThinkGem
- * @version 2014-05-16
  */
 public abstract class DataEntity<T> extends BaseEntity<T> {
 

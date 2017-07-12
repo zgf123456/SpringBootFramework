@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.mapper;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -22,8 +19,6 @@ import java.util.TimeZone;
 /**
  * 简单封装Jackson，实现JSON String<->Java Object的Mapper.
  * 封装不同的输出风格, 使用不同的builder函数创建实例.
- * @author ThinkGem
- * @version 2013-11-15
  */
 public class JsonMapper extends ObjectMapper {
 

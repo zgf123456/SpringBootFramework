@@ -1,7 +1,8 @@
 package com.fastdev.jeesite.business.sys.entity;
 
 import com.fastdev.jeesite.common.persistence.DataEntity;
-import com.fastdev.jeesite.common.utils.StringUtils;
+import com.fastdev.jeesite.common.utils.StringUtilsExt;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import java.util.Date;
@@ -130,7 +131,7 @@ public class Log extends DataEntity<Log> {
 		for (Map.Entry<String, String[]> param : ((Map<String, String[]>)paramMap).entrySet()){
 			params.append(("".equals(params.toString()) ? "" : "&") + param.getKey() + "=");
 			String paramValue = (param.getValue() != null && param.getValue().length > 0 ? param.getValue()[0] : "");
-			params.append(StringUtils.abbr(StringUtils.endsWithIgnoreCase(param.getKey(), "password") ? "" : paramValue, 100));
+			params.append(StringUtilsExt.abbr(StringUtils.endsWithIgnoreCase(param.getKey(), "password") ? "" : paramValue, 100));
 		}
 		this.params = params.toString();
 	}

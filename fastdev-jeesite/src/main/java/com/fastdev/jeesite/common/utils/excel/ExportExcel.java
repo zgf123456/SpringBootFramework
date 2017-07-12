@@ -1,13 +1,10 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.utils.excel;
 
+import com.fastdev.jeesite.business.sys.utils.DictUtils;
+import com.fastdev.jeesite.common.utils.Encodes;
+import com.fastdev.jeesite.common.utils.Reflections;
+import com.fastdev.jeesite.common.utils.excel.annotation.ExcelField;
 import com.google.common.collect.Lists;
-import com.wolfking.jeesite.common.utils.Encodes;
-import com.wolfking.jeesite.common.utils.Reflections;
-import com.wolfking.jeesite.common.utils.excel.annotation.ExcelField;
-import com.wolfking.jeesite.modules.sys.utils.DictUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -28,8 +25,6 @@ import java.util.*;
 
 /**
  * 导出Excel文件（导出“XLSX”格式，支持大数据量导出   @see org.apache.poi.ss.SpreadsheetVersion）
- * @author ThinkGem
- * @version 2013-04-21
  */
 public class ExportExcel {
 	
@@ -412,7 +407,7 @@ public class ExportExcel {
 	public ExportExcel write(HttpServletResponse response, String fileName) throws IOException{
 		response.reset();
         response.setContentType("application/octet-stream; charset=utf-8");
-        response.setHeader("Content-Disposition", "attachment; filename="+Encodes.urlEncode(fileName));
+        response.setHeader("Content-Disposition", "attachment; filename="+ Encodes.urlEncode(fileName));
 		write(response.getOutputStream());
 		return this;
 	}

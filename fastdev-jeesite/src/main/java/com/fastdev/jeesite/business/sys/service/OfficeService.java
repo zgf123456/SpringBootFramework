@@ -1,12 +1,9 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.service;
 
-import com.wolfking.jeesite.common.service.TreeService;
-import com.wolfking.jeesite.modules.sys.dao.OfficeDao;
-import com.wolfking.jeesite.modules.sys.entity.Office;
-import com.wolfking.jeesite.modules.sys.utils.UserUtils;
+import com.fastdev.jeesite.business.sys.dao.OfficeDao;
+import com.fastdev.jeesite.business.sys.entity.Office;
+import com.fastdev.jeesite.business.sys.utils.UserUtils;
+import com.fastdev.jeesite.common.service.TreeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,8 +12,6 @@ import java.util.List;
 
 /**
  * 机构Service
- * @author ThinkGem
- * @version 2014-05-16
  */
 @Service
 @Transactional(readOnly = true)

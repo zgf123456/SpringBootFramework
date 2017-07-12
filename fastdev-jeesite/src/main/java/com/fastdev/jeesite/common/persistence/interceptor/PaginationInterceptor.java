@@ -1,11 +1,8 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.persistence.interceptor;
 
-import com.wolfking.jeesite.common.persistence.Page;
-import com.wolfking.jeesite.common.utils.Reflections;
-import com.wolfking.jeesite.common.utils.StringUtils;
+import com.fastdev.jeesite.common.persistence.Page;
+import com.fastdev.jeesite.common.utils.Reflections;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -22,8 +19,6 @@ import java.util.Properties;
 
 /**
  * 数据库分页插件，只拦截查询语句.
- * @author poplar.yfyang / thinkgem
- * @version 2013-8-28
  */
 @Intercepts({@Signature(type = Executor.class, method = "query",
         args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
@@ -58,7 +53,7 @@ public class PaginationInterceptor extends BaseInterceptor {
                 String originalSql = boundSql.getSql().trim();
             	
                 //得到总记录数
-                page.setCount(SQLHelper.getCount(originalSql, null, mappedStatement, parameterObject, boundSql, log));
+                page.setCount(SQLHelper.getCount(originalSql, null, mappedStatement, parameterObject, boundSql, logger));
 
                 //分页查询 本地化对象 修改数据库注意修改实现
                 String pageSql = SQLHelper.generatePageSql(originalSql, page, DIALECT);

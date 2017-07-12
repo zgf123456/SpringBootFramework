@@ -1,13 +1,10 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.service;
 
-import com.wolfking.jeesite.common.service.CrudService;
-import com.wolfking.jeesite.common.utils.CacheUtils;
-import com.wolfking.jeesite.modules.sys.dao.DictDao;
-import com.wolfking.jeesite.modules.sys.entity.Dict;
-import com.wolfking.jeesite.modules.sys.utils.DictUtils;
+import com.fastdev.jeesite.business.sys.dao.DictDao;
+import com.fastdev.jeesite.business.sys.entity.Dict;
+import com.fastdev.jeesite.business.sys.utils.DictUtils;
+import com.fastdev.jeesite.common.service.CrudService;
+import com.fastdev.jeesite.common.utils.CacheUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,8 +12,6 @@ import java.util.List;
 
 /**
  * 字典Service
- * @author ThinkGem
- * @version 2014-05-16
  */
 @Service
 @Transactional(readOnly = true)

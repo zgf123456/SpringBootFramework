@@ -8,12 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Component
 public class WebInterceptorConfigurer extends WebMvcConfigurerAdapter {
     @Autowired
-    private LogInterceptor logInterceptor;
-    @Autowired
     private LogThread logThread;
 
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(logInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(new LogInterceptor()).addPathPatterns("/**");
         super.addInterceptors(registry);
         logThread.start();
     }

@@ -3,10 +3,10 @@ package com.fastdev.jeesite.business.sys.service;
 import com.fastdev.jeesite.business.sys.dao.MenuDao;
 import com.fastdev.jeesite.business.sys.dao.RoleDao;
 import com.fastdev.jeesite.business.sys.dao.UserDao;
-import com.fastdev.jeesite.business.sys.entity.Office;
-import com.fastdev.jeesite.business.sys.entity.User;
-import com.fastdev.jeesite.business.sys.entity.Role;
 import com.fastdev.jeesite.business.sys.entity.Menu;
+import com.fastdev.jeesite.business.sys.entity.Office;
+import com.fastdev.jeesite.business.sys.entity.Role;
+import com.fastdev.jeesite.business.sys.entity.User;
 import com.fastdev.jeesite.business.sys.utils.LogUtils;
 import com.fastdev.jeesite.business.sys.utils.UserUtils;
 import com.fastdev.jeesite.common.config.Global;
@@ -17,8 +17,9 @@ import com.fastdev.jeesite.common.service.BaseService;
 import com.fastdev.jeesite.common.service.ServiceException;
 import com.fastdev.jeesite.common.utils.CacheUtils;
 import com.fastdev.jeesite.common.utils.Encodes;
-import com.fastdev.jeesite.common.utils.StringUtils;
+import com.fastdev.jeesite.common.utils.StringUtilsExt;
 import com.fastdev.jeesite.common.web.Servlets;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -189,7 +190,7 @@ public class SystemService extends BaseService {
         user.setOldLoginIp(user.getLoginIp());
         user.setOldLoginDate(user.getLoginDate());
         // 更新本次登录信息
-        user.setLoginIp(StringUtils.getRemoteAddr(Servlets.getRequest()));
+        user.setLoginIp(StringUtilsExt.getRemoteAddr(Servlets.getRequest()));
         user.setLoginDate(new Date());
         userDao.updateLoginInfo(user);
     }

@@ -1,15 +1,12 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.utils;
 
+import com.fastdev.jeesite.business.sys.dao.DictDao;
+import com.fastdev.jeesite.business.sys.entity.Dict;
+import com.fastdev.jeesite.common.mapper.JsonMapper;
+import com.fastdev.jeesite.common.utils.CacheUtils;
+import com.fastdev.jeesite.common.utils.SpringContextHolder;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.wolfking.jeesite.common.mapper.JsonMapper;
-import com.wolfking.jeesite.common.utils.CacheUtils;
-import com.wolfking.jeesite.common.utils.SpringContextHolder;
-import com.wolfking.jeesite.modules.sys.dao.DictDao;
-import com.wolfking.jeesite.modules.sys.entity.Dict;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -17,8 +14,6 @@ import java.util.Map;
 
 /**
  * 字典工具类
- * @author ThinkGem
- * @version 2013-5-29
  */
 public class DictUtils {
 	
@@ -61,7 +56,7 @@ public class DictUtils {
 	
 	public static List<Dict> getDictList(String type){
 		@SuppressWarnings("unchecked")
-		Map<String, List<Dict>> dictMap = (Map<String, List<Dict>>)CacheUtils.get(CACHE_DICT_MAP);
+		Map<String, List<Dict>> dictMap = (Map<String, List<Dict>>) CacheUtils.get(CACHE_DICT_MAP);
 		if (dictMap==null){
 			dictMap = Maps.newHashMap();
 			for (Dict dict : dictDao.findAllList(new Dict())){

@@ -3,7 +3,7 @@ package com.fastdev.jeesite.common.utils.excel.fieldtype;
 
 import com.fastdev.jeesite.business.sys.entity.Office;
 import com.fastdev.jeesite.business.sys.utils.UserUtils;
-import com.fastdev.jeesite.common.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 字段类型转换

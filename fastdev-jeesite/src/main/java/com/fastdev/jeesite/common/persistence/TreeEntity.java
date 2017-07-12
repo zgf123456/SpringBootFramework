@@ -1,19 +1,14 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.persistence;
 
+import com.fastdev.jeesite.common.utils.Reflections;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.wolfking.jeesite.common.utils.Reflections;
-import com.wolfking.jeesite.common.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
 
 /**
  * 数据Entity类
- * @author ThinkGem
- * @version 2014-05-16
  */
 public abstract class TreeEntity<T> extends DataEntity<T> {
 

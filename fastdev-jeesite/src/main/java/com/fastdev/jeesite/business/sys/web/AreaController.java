@@ -1,16 +1,13 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.web;
 
+import com.fastdev.jeesite.business.sys.entity.Area;
+import com.fastdev.jeesite.business.sys.service.AreaService;
+import com.fastdev.jeesite.business.sys.utils.UserUtils;
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.web.BaseController;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.utils.StringUtils;
-import com.wolfking.jeesite.common.web.BaseController;
-import com.wolfking.jeesite.modules.sys.entity.Area;
-import com.wolfking.jeesite.modules.sys.service.AreaService;
-import com.wolfking.jeesite.modules.sys.utils.UserUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,8 +24,6 @@ import java.util.Map;
 
 /**
  * 区域Controller
- * @author ThinkGem
- * @version 2013-5-15
  */
 @Controller
 @RequestMapping(value = "${adminPath}/sys/area")

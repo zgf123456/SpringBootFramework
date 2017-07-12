@@ -4,8 +4,8 @@ import com.fastdev.jeesite.business.sys.entity.Role;
 import com.fastdev.jeesite.business.sys.service.SystemService;
 import com.fastdev.jeesite.common.utils.Collections3;
 import com.fastdev.jeesite.common.utils.SpringContextHolder;
-import com.fastdev.jeesite.common.utils.StringUtils;
 import com.google.common.collect.Lists;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 

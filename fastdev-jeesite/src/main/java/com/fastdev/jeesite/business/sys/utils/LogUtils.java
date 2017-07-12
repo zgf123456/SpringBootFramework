@@ -1,22 +1,16 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.business.sys.utils;
 
-import com.wolfking.jeesite.common.utils.StringUtils;
-import com.wolfking.jeesite.modules.sys.entity.Log;
-import com.wolfking.jeesite.modules.sys.entity.User;
-import com.wolfking.jeesite.modules.sys.interceptor.InterceptorLogEntity;
-import com.wolfking.jeesite.modules.sys.interceptor.LogThread;
+import com.fastdev.jeesite.business.sys.entity.Log;
+import com.fastdev.jeesite.business.sys.entity.User;
+import com.fastdev.jeesite.business.sys.interceptor.InterceptorLogEntity;
+import com.fastdev.jeesite.business.sys.interceptor.LogThread;
+import com.fastdev.jeesite.common.utils.StringUtilsExt;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
  * 字典工具类
- *
- * @author ThinkGem
- * @version 2014-11-7
  */
 public class LogUtils {
 
@@ -38,7 +32,7 @@ public class LogUtils {
             Log log = new Log();
             log.setTitle(title);
             log.setType(ex == null ? Log.TYPE_ACCESS : Log.TYPE_EXCEPTION);
-            log.setRemoteAddr(StringUtils.getRemoteAddr(request));
+            log.setRemoteAddr(StringUtilsExt.getRemoteAddr(request));
             log.setUserAgent(request.getHeader("user-agent"));
             log.setRequestUri(request.getRequestURI());
             log.setParams(request.getParameterMap());

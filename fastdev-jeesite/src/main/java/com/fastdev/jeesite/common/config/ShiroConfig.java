@@ -1,9 +1,9 @@
 package com.fastdev.jeesite.common.config;
 
-import com.wolfking.jeesite.common.security.shiro.session.CacheSessionDAO;
-import com.wolfking.jeesite.common.security.shiro.session.SessionManager;
-import com.wolfking.jeesite.modules.sys.security.FormAuthenticationFilter;
-import com.wolfking.jeesite.modules.sys.security.SystemAuthorizingRealm;
+import com.fastdev.jeesite.business.sys.security.FormAuthenticationFilter;
+import com.fastdev.jeesite.business.sys.security.SystemAuthorizingRealm;
+import com.fastdev.jeesite.common.security.shiro.session.CacheSessionDAO;
+import com.fastdev.jeesite.common.security.shiro.session.SessionManager;
 import net.sf.ehcache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -30,9 +30,6 @@ import java.util.Map;
 /**
  * shiro的控制类
  * 下面方法的顺序不能乱
- * Created by zhao.weiwei
- * create on 2017/1/11 10:59
- * the email is zhao.weiwei@jyall.com.
  */
 @Component
 public class ShiroConfig {
@@ -98,7 +95,7 @@ public class ShiroConfig {
         sessionManager.setGlobalSessionTimeout(86400000);
         sessionManager.setSessionValidationInterval(1800000);
         sessionManager.setSessionValidationSchedulerEnabled(true);
-        sessionManager.setSessionIdCookie(new SimpleCookie("wolfking.jeesite.session.id"));
+        sessionManager.setSessionIdCookie(new SimpleCookie("fastdev.jeesite.session.id"));
         sessionManager.setSessionIdCookieEnabled(true);
         return sessionManager;
     }

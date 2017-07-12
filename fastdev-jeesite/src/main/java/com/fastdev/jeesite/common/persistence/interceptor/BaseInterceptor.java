@@ -1,24 +1,18 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.persistence.interceptor;
 
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.persistence.Page;
-import com.wolfking.jeesite.common.persistence.dialect.*;
-import com.wolfking.jeesite.common.utils.Reflections;
-import org.apache.ibatis.logging.Log;
-import org.apache.ibatis.logging.LogFactory;
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.persistence.Page;
+import com.fastdev.jeesite.common.persistence.dialect.*;
+import com.fastdev.jeesite.common.utils.Reflections;
 import org.apache.ibatis.plugin.Interceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 import java.util.Properties;
 
 /**
  * Mybatis分页拦截器基类
- *
- * @author poplar.yfyang / thinkgem
- * @version 2013-8-28
  */
 public abstract class BaseInterceptor implements Interceptor, Serializable {
 
@@ -30,7 +24,7 @@ public abstract class BaseInterceptor implements Interceptor, Serializable {
 
     protected static final String MAPPED_STATEMENT = "mappedStatement";
 
-    protected Log log = LogFactory.getLog(this.getClass());
+    protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
     protected Dialect DIALECT;
 
@@ -87,7 +81,7 @@ public abstract class BaseInterceptor implements Interceptor, Serializable {
             dialect = new SybaseDialect();
         }
         if (dialect == null) {
-            log.error("user the mysql dialect");
+            logger.info("user the mysql dialect");
             dialect = new MySQLDialect();
         }
         DIALECT = dialect;

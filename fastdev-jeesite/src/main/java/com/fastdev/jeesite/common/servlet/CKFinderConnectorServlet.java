@@ -1,13 +1,11 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.fastdev.jeesite.common.servlet;
 
+
 import com.ckfinder.connector.ConnectorServlet;
-import com.wolfking.jeesite.common.config.Global;
-import com.wolfking.jeesite.common.utils.FileUtils;
-import com.wolfking.jeesite.modules.sys.security.SystemAuthorizingRealm.Principal;
-import com.wolfking.jeesite.modules.sys.utils.UserUtils;
+import com.fastdev.jeesite.business.sys.security.SystemAuthorizingRealm;
+import com.fastdev.jeesite.business.sys.utils.UserUtils;
+import com.fastdev.jeesite.common.config.Global;
+import com.fastdev.jeesite.common.utils.FileUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -18,14 +16,11 @@ import java.io.IOException;
 
 /**
  * CKFinderConnectorServlet
- *
- * @author ThinkGem
- * @version 2014-06-25
  */
 @WebServlet(urlPatterns = "/static/ckfinder/core/connector/java/connector.java", initParams = {
         @WebInitParam(name = "XMLConfig", value = "classpath:ckfinder.xml"),
         @WebInitParam(name = "debug", value = "false"),
-        @WebInitParam(name = "configuration", value = "com.wolfking.jeesite.common.web.CKFinderConfig")
+        @WebInitParam(name = "configuration", value = "com.fastdev.jeesite.common.web.CKFinderConfig")
 }, loadOnStartup = 1)
 public class CKFinderConnectorServlet extends ConnectorServlet {
 
@@ -47,7 +42,7 @@ public class CKFinderConnectorServlet extends ConnectorServlet {
 
     private void prepareGetResponse(final HttpServletRequest request,
                                     final HttpServletResponse response, final boolean post) throws ServletException {
-        Principal principal = UserUtils.getPrincipal();
+        SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
         if (principal == null) {
             return;
         }

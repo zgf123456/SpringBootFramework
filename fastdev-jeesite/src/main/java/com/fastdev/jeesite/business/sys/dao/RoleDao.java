@@ -1,13 +1,13 @@
 package com.fastdev.jeesite.business.sys.dao;
 
+import com.fastdev.common.mybatis.annotation.FastdevMybatisMapper;
 import com.fastdev.jeesite.business.sys.entity.Role;
 import com.fastdev.jeesite.common.persistence.CrudDao;
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 角色DAO接口
  */
-@Mapper
+@FastdevMybatisMapper
 public interface RoleDao extends CrudDao<Role> {
 
     Role getByName(Role role);
