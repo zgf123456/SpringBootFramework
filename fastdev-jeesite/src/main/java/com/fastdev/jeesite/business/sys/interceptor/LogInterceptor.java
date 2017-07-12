@@ -2,7 +2,6 @@ package com.fastdev.jeesite.business.sys.interceptor;
 
 import com.fastdev.jeesite.business.sys.utils.LogUtils;
 import com.fastdev.jeesite.common.service.BaseService;
-import com.fastdev.jeesite.common.utils.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.NamedThreadLocal;
@@ -32,11 +31,12 @@ public class LogInterceptor extends BaseService implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
     }
+
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
                                 Object handler, Exception ex) throws Exception {
         logger.info("URI: {},耗时：{}   ",
-                request.getRequestURI(), DateUtils.formatDateTime(System.currentTimeMillis() - startTimeThreadLocal.get()));
+                request.getRequestURI(), (System.currentTimeMillis() - startTimeThreadLocal.get()) + "ms");
         //删除线程变量中的数据，防止内存泄漏
         startTimeThreadLocal.remove();
         // 保存日志

@@ -1,6 +1,7 @@
 package com.fastdev.common.aop;
 
 import com.alibaba.fastjson.JSON;
+import com.fastdev.common.annotation.CustomeLogAspect;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * 业务方法执行日志
  */
 @Aspect
+@CustomeLogAspect
 @Component
 public class LogAspect implements Ordered {
 
@@ -45,9 +47,9 @@ public class LogAspect implements Ordered {
         result = point.proceed();
         long endTime = System.currentTimeMillis();
         long usedTime = endTime - startTime;
-        String resultJson = getMethodReturn(result, methodName, classLogger);
+        // String resultJson = getMethodReturn(result, methodName, classLogger);
         //后置通知
-        MDC.put("METHOD_PARAM", "返回值：" + resultJson);
+        // MDC.put("METHOD_PARAM", "返回值：" + resultJson);
         classLogger.info("方法[" + methodName + "] 执行结束 耗时:" + usedTime + "ms ");
         MDC.put("METHOD_PARAM", "");
         return result;
