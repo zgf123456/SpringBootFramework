@@ -10,6 +10,7 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by 李一萌 on 2017/4/28.
+ *
+ * 登录测试，JSONP测试
+ *
  */
 @RestController
 public class AccountController {
@@ -31,7 +34,7 @@ public class AccountController {
 
     @RequestMapping("/account/login")
     @ResponseBody
-    public JSONPObject login(HttpServletRequest request, String callback) {
+    public Object login(HttpServletRequest request, String callback) {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
@@ -59,15 +62,16 @@ public class AccountController {
             responseVo.setReturnCode(ResponseVo.FAIL);
             responseVo.setReturnMsg("登录失败");
             logger.error("用户登录系统异常 account:" + account + " password:" + password + " 原因：" + e);
-            logger.debug("用户登录系统异常 account:" + account + " password:" + password + " 原因：", e);
         }
 
-        return new JSONPObject(callback, responseVo);
+        MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(responseVo);
+        mappingJacksonValue.setJsonpFunction(callback);
+        return mappingJacksonValue;
     }
 
     @RequestMapping("/account/logout")
     @ResponseBody
-    public JSONPObject logout(HttpServletRequest request, String callback) {
+    public Object logout(HttpServletRequest request, String callback) {
         ResponseVo responseVo = new ResponseVo();
         try {
             Subject subject = SecurityUtils.getSubject();
@@ -78,14 +82,16 @@ public class AccountController {
             responseVo.setReturnCode(ResponseVo.FAIL);
             responseVo.setReturnMsg("用户注销系统失败");
             logger.error("用户注销系统失败 原因：" + e);
-            logger.debug("用户注销系统失败 原因：", e);
         }
-        return new JSONPObject(callback, responseVo);
+
+        MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(responseVo);
+        mappingJacksonValue.setJsonpFunction(callback);
+        return mappingJacksonValue;
     }
 
     @RequestMapping(value = "/account/logininfo")
     @ResponseBody
-    public JSONPObject loginInfo(String callback) {
+    public Object loginInfo(String callback) {
         ResponseVo responseVo = new ResponseVo();
         try {
             //尝试获取已经登录的用户鉴权信息
@@ -100,9 +106,11 @@ public class AccountController {
             responseVo.setReturnCode(ResponseVo.FAIL);
             responseVo.setReturnMsg("获取登录用户信息失败");
             logger.error("获取登录用户信息失败 原因：" + e);
-            logger.debug("获取登录用户信息失败 原因：", e);
         }
-        return new JSONPObject(callback, responseVo);
+
+        MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(responseVo);
+        mappingJacksonValue.setJsonpFunction(callback);
+        return mappingJacksonValue;
     }
 
 
