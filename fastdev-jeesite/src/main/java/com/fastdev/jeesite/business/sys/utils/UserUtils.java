@@ -11,6 +11,8 @@ import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import com.fastdev.jeesite.business.sys.security.SystemAuthorizingRealm.Principal;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -18,6 +20,7 @@ import java.util.List;
  * 用户工具类
  */
 public class UserUtils {
+	private static Logger logger = LoggerFactory.getLogger(UserUtils.class);
 
 	private static UserDao userDao = SpringContextHolder.getBean(UserDao.class);
 	private static RoleDao roleDao = SpringContextHolder.getBean(RoleDao.class);
@@ -78,6 +81,7 @@ public class UserUtils {
 	 * 清除当前用户缓存
 	 */
 	public static void clearCache(){
+		logger.info("清除当前用户缓存");
 		removeCache(CACHE_ROLE_LIST);
 		removeCache(CACHE_MENU_LIST);
 		removeCache(CACHE_AREA_LIST);
