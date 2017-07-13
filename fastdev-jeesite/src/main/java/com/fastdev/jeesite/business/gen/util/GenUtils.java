@@ -302,7 +302,7 @@ public class GenUtils {
 		model.put("permissionPrefix", model.get("moduleName")+(StringUtils.isNotBlank(genScheme.getSubModuleName())
 				?":"+StringUtils.lowerCase(genScheme.getSubModuleName()):"")+":"+model.get("className"));
 		
-		model.put("dbType", Global.getConfig("jdbc.type"));
+		model.put("dbType", Global.getJdbcType());
 
 		model.put("table", genScheme.getGenTable());
 		
