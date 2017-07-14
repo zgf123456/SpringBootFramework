@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template>
 	<name>entity</name>
-	<filePath>src/main/java/${packageName}/${moduleName}/entity/${subModuleName}</filePath>
+	<filePath>src/main/java/${packageName}/business/${moduleName}/entity/${subModuleName}</filePath>
 	<fileName>${ClassName}.java</fileName>
 	<content><![CDATA[
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
-package ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>;
+package ${packageName}.business.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>;
 
 <#list table.importList as i>
 import ${i};
 </#list>
 
-import com.thinkgem.jeesite.common.persistence.TreeEntity;
+import ${packageName}.common.persistence.TreeEntity;
 
 /**
  * ${functionName}Entity

@@ -7,6 +7,7 @@ import com.fastdev.jeesite.business.gen.service.GenTableService;
 import com.fastdev.jeesite.business.gen.util.GenUtils;
 import com.fastdev.jeesite.business.sys.entity.User;
 import com.fastdev.jeesite.business.sys.utils.UserUtils;
+import com.fastdev.jeesite.common.config.Global;
 import com.fastdev.jeesite.common.persistence.Page;
 import com.fastdev.jeesite.common.web.BaseController;
 import org.apache.commons.lang3.StringUtils;
@@ -61,11 +62,8 @@ public class GenSchemeController extends BaseController {
 	@RequestMapping(value = "form")
 	public String form(GenScheme genScheme, Model model) {
 		if (StringUtils.isBlank(genScheme.getPackageName())){
-			genScheme.setPackageName("com.thinkgem.jeesite.modules");
+			genScheme.setPackageName(Global.getConfig("gen.default.packageName"));
 		}
-//		if (StringUtils.isBlank(genScheme.getFunctionAuthor())){
-//			genScheme.setFunctionAuthor(UserUtils.getUser().getName());
-//		}
 		model.addAttribute("genScheme", genScheme);
 		model.addAttribute("config", GenUtils.getConfig());
 		model.addAttribute("tableList", genTableService.findAll());

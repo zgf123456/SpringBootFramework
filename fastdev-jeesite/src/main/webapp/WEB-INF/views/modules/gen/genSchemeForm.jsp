@@ -56,14 +56,14 @@
 			<label class="control-label">生成包路径:</label>
 			<div class="controls">
 				<form:input path="packageName" htmlEscape="false" maxlength="500" class="required input-xlarge"/>
-				<span class="help-inline">建议模块包：com.thinkgem.jeesite.modules</span>
+				<span class="help-inline">建议模块包：com.xxx.xxxx</span>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">生成模块名:</label>
 			<div class="controls">
 				<form:input path="moduleName" htmlEscape="false" maxlength="500" class="required input-xlarge"/>
-				<span class="help-inline">可理解为子系统名，例如 sys</span>
+				<span class="help-inline">可理解为子系统名，例如 sys，不带business，最终效果com.xxx.xxxx.business.sys</span>
 			</div>
 		</div>
 		<div class="control-group">

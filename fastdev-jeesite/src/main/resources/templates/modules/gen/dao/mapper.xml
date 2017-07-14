@@ -6,7 +6,7 @@
 	<content><![CDATA[
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${packageName}.${moduleName}.dao<#if subModuleName != "">.${subModuleName}</#if>.${ClassName}Dao">
+<mapper namespace="${packageName}.business.${moduleName}.dao<#if subModuleName != "">.${subModuleName}</#if>.${ClassName}Dao">
     
     <#-- 输出字段列 -->
 	<sql id="${className}Columns">
@@ -57,7 +57,7 @@ ${columnField?substring(0, columnField?last_index_of(","))}
 		</#list>
 	</sql>
     
-	<select id="get" resultType="${ClassName}">
+	<select id="get" resultType="${packageName}.business.${moduleName}.entity.${ClassName}">
 		SELECT 
 			<include refid="${className}Columns"/>
 		FROM ${table.name} a
@@ -65,7 +65,7 @@ ${columnField?substring(0, columnField?last_index_of(","))}
 		WHERE a.id = ${"#"}{id}
 	</select>
 	
-	<select id="findList" resultType="${ClassName}">
+	<select id="findList" resultType="${packageName}.business.${moduleName}.entity.${ClassName}">
 		SELECT 
 			<include refid="${className}Columns"/>
 		FROM ${table.name} a
@@ -121,7 +121,7 @@ ${columnField?substring(0, columnField?last_index_of(","))}
 		</choose>
 	</select>
 	
-	<select id="findAllList" resultType="${ClassName}">
+	<select id="findAllList" resultType="${packageName}.business.${moduleName}.entity.${ClassName}">
 		SELECT 
 			<include refid="${className}Columns"/>
 		FROM ${table.name} a

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template>
 	<name>controller</name>
-	<filePath>src/main/java/${packageName}/${moduleName}/web/${subModuleName}</filePath>
+	<filePath>src/main/java/${packageName}/business/${moduleName}/web/${subModuleName}</filePath>
 	<fileName>${ClassName}Controller.java</fileName>
 	<content><![CDATA[
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
-package ${packageName}.${moduleName}.web<#if subModuleName != "">.${subModuleName}</#if>;
+package ${packageName}.business.${moduleName}.web<#if subModuleName != "">.${subModuleName}</#if>;
 
 import java.util.List;
 import java.util.Map;
@@ -27,11 +24,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.thinkgem.jeesite.common.config.Global;
-import com.thinkgem.jeesite.common.web.BaseController;
-import com.thinkgem.jeesite.common.utils.StringUtils;
-import ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>.${ClassName};
-import ${packageName}.${moduleName}.service<#if subModuleName != "">.${subModuleName}</#if>.${ClassName}Service;
+import ${packageName}.common.config.Global;
+import ${packageName}.common.web.BaseController;
+import ${packageName}.common.utils.StringUtils;
+import ${packageName}.business.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>.${ClassName};
+import ${packageName}.business.${moduleName}.service<#if subModuleName != "">.${subModuleName}</#if>.${ClassName}Service;
 
 /**
  * ${functionName}Controller
