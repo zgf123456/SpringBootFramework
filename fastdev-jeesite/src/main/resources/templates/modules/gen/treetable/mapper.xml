@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template>
 	<name>mapper</name>
-	<filePath>src/main/resources/mapper/${lastPackageName}/${moduleName}/${subModuleName}</filePath>
+	<filePath>src/main/resources/mapper/${moduleName}/${subModuleName}</filePath>
 	<fileName>${ClassName}Dao.xml</fileName>
 	<content><![CDATA[
 <?xml version="1.0" encoding="UTF-8" ?>

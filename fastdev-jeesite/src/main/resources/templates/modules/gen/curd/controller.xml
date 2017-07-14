@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ${packageName}.common.config.Global;
 import ${packageName}.common.persistence.Page;
 import ${packageName}.common.web.BaseController;
-import ${packageName}.common.utils.StringUtils;
+import ${packageName}.common.utils.StringUtilsExt;
 import ${packageName}.business.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>.${ClassName};
 import ${packageName}.business.${moduleName}.service<#if subModuleName != "">.${subModuleName}</#if>.${ClassName}Service;
 
