@@ -62,7 +62,8 @@
 			<if test="sex != null and sex != ''">
 				AND a.sex = #{sex}
 			</if>
-			<if test="beginInDate != null and endInDate != null and beginInDate != '' and endInDate != ''">
+			<!-- remove beginInDate != '' -->
+			<if test="beginInDate != null and endInDate != null">
 				AND a.in_date BETWEEN #{beginInDate} AND #{endInDate}
 			</if>
 		</where>

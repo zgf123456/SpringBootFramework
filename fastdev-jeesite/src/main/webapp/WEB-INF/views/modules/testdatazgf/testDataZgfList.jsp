@@ -42,14 +42,16 @@
 					<form:option value="" label=""/>
 					<form:options items="${fns:getDictList('sex')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
 				</form:select>
-			<label>加入日期：</label>
-				<input name="beginInDate" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate"
-					value="<fmt:formatDate value="${testDataZgf.beginInDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
-					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/> - 
-				<input name="endInDate" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate"
-					value="<fmt:formatDate value="${testDataZgf.endInDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
-					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/>
-			&nbsp;&nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
+			<div style="margin-top:8px;">
+				<label>加入日期：</label>
+					<input name="beginInDate" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate"
+						value="<fmt:formatDate value="${testDataZgf.beginInDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
+						onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/> -
+					<input name="endInDate" type="text" readonly="readonly" maxlength="20" class="input-medium Wdate"
+						value="<fmt:formatDate value="${testDataZgf.endInDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"
+						onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false});"/>
+				&nbsp;&nbsp;<input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/>
+			</div>
 	</form:form>
 	<sys:message content="${message}"/>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
