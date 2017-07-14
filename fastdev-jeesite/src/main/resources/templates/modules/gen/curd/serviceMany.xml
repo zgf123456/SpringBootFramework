@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ${packageName}.common.persistence.Page;
 import ${packageName}.common.service.CrudService;
-import ${packageName}.common.utils.StringUtilsExt;
+import org.apache.commons.lang3.StringUtils;
 import ${packageName}.business.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>.${ClassName};
 import ${packageName}.business.${moduleName}.dao<#if subModuleName != "">.${subModuleName}</#if>.${ClassName}Dao;
 <#list table.childList as c>
