@@ -4,6 +4,7 @@
 	<filePath>src/main/webapp/WEB-INF/views/modules/${moduleName}/${subModuleName}</filePath>
 	<fileName>${className}List.jsp</fileName>
 	<content><![CDATA[
+<!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
