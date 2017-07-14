@@ -58,8 +58,8 @@
 				<span class="help-inline">
 					示例如下：<br/>
 					java：src/main/java/\${packageName}/\${moduleName}/entity/\${subModuleName}<br/>
-					view：src/main/webapp/WEB-INF/views/\${lastPackageName}/${moduleName}/\${subModuleName}<br/>
-					mapper:/src/main/resources/mappings/\${dbType}/\${lastPackageName}/\${moduleName}/\${subModuleName}
+					view：src/main/webapp/WEB-INF/views/\modules/${moduleName}/\${subModuleName}<br/>
+					mapper:/src/main/resources/mapper/\${moduleName}/\${subModuleName}
 				</span>
 			</div>
 		</div>

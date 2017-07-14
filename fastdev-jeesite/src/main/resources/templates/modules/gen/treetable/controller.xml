@@ -59,7 +59,7 @@ public class ${ClassName}Controller extends BaseController {
 	public String list(${ClassName} ${className}, HttpServletRequest request, HttpServletResponse response, Model model) {
 		List<${ClassName}> list = ${className}Service.findList(${className}); 
 		model.addAttribute("list", list);
-		return "${lastPackageName}/${viewPrefix}List";
+		return "modules/${viewPrefix}List";
 	}
 
 	@RequiresPermissions("${permissionPrefix}:view")
@@ -84,7 +84,7 @@ public class ${ClassName}Controller extends BaseController {
 			${className}.setSort(30);
 		}
 		model.addAttribute("${className}", ${className});
-		return "${lastPackageName}/${viewPrefix}Form";
+		return "modules/${viewPrefix}Form";
 	}
 
 	@RequiresPermissions("${permissionPrefix}:edit")
